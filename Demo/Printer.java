@@ -17,17 +17,9 @@ package Demo;
 
 public interface Printer extends com.zeroc.Ice.Object
 {
-    boolean verifyGUIDFormat(String guid, com.zeroc.Ice.Current current);
-
     int findClosestPrime(int number, com.zeroc.Ice.Current current);
 
-    boolean isPrime(int number, com.zeroc.Ice.Current current);
-
     boolean validateString(String s, com.zeroc.Ice.Current current);
-
-    void validRequest(String message, com.zeroc.Ice.Current current);
-
-    void invalidRequest(String message, com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
@@ -60,27 +52,6 @@ public interface Printer extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_verifyGUIDFormat(Printer obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        String iceP_guid;
-        iceP_guid = istr.readString();
-        inS.endReadParams();
-        boolean ret = obj.verifyGUIDFormat(iceP_guid, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ostr.writeBool(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_findClosestPrime(Printer obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -91,27 +62,6 @@ public interface Printer extends com.zeroc.Ice.Object
         int ret = obj.findClosestPrime(iceP_number, current);
         com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
         ostr.writeInt(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_isPrime(Printer obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        int iceP_number;
-        iceP_number = istr.readInt();
-        inS.endReadParams();
-        boolean ret = obj.isPrime(iceP_number, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ostr.writeBool(ret);
         inS.endWriteParams(ostr);
         return inS.setResult(ostr);
     }
@@ -137,42 +87,6 @@ public interface Printer extends com.zeroc.Ice.Object
         return inS.setResult(ostr);
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_validRequest(Printer obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        String iceP_message;
-        iceP_message = istr.readString();
-        inS.endReadParams();
-        obj.validRequest(iceP_message, current);
-        return inS.setResult(inS.writeEmptyParams());
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_invalidRequest(Printer obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        String iceP_message;
-        iceP_message = istr.readString();
-        inS.endReadParams();
-        obj.invalidRequest(iceP_message, current);
-        return inS.setResult(inS.writeEmptyParams());
-    }
-
     /** @hidden */
     final static String[] _iceOps =
     {
@@ -181,11 +95,7 @@ public interface Printer extends com.zeroc.Ice.Object
         "ice_ids",
         "ice_isA",
         "ice_ping",
-        "invalidRequest",
-        "isPrime",
-        "validRequest",
-        "validateString",
-        "verifyGUIDFormat"
+        "validateString"
     };
 
     /** @hidden */
@@ -223,23 +133,7 @@ public interface Printer extends com.zeroc.Ice.Object
             }
             case 5:
             {
-                return _iceD_invalidRequest(this, in, current);
-            }
-            case 6:
-            {
-                return _iceD_isPrime(this, in, current);
-            }
-            case 7:
-            {
-                return _iceD_validRequest(this, in, current);
-            }
-            case 8:
-            {
                 return _iceD_validateString(this, in, current);
-            }
-            case 9:
-            {
-                return _iceD_verifyGUIDFormat(this, in, current);
             }
         }
 

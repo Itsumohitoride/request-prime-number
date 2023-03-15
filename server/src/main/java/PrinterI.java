@@ -9,36 +9,35 @@ public class PrinterI implements Demo.Printer
 
     public boolean validateString(String guid, com.zeroc.Ice.Current current)
     {
-        boolean verification = verifyGUIDFormat(guid, current);
+        boolean verification = verifyGUIDFormat(guid);
+        String serverMessage = "";
 
         if(verification){
-            validRequest(guid,current);
+            serverMessage = GREEN + guid;
+            printRequest(serverMessage, VALID_REQUEST);
         }else {
-            invalidRequest(guid, current);
+            serverMessage = RED + guid;
+            printRequest(serverMessage, INVALID_REQUEST);
         }
         return verification;
     }
 
-    public void validRequest(String message, com.zeroc.Ice.Current current){
-        System.out.println(GREEN+message+VALID_REQUEST+WHITE);
+    private void printRequest(String serverMessage, String typeRequest){
+        System.out.println(serverMessage+typeRequest+WHITE);
     }
 
-    public void invalidRequest(String message, com.zeroc.Ice.Current current){
-        System.out.println(RED+message+INVALID_REQUEST+WHITE);
-    }
-
-    public boolean verifyGUIDFormat(String guid, com.zeroc.Ice.Current current){
+    private boolean verifyGUIDFormat(String guid){
         return guid.matches("^[a-f0-9]{8}[-]{1}[a-f0-9]{4}[-]{1}[a-f0-9]{4}[-]{1}[a-f0-9]{4}[-]{1}[a-f0-9]{12}$");
     }
     public int findClosestPrime(int number, com.zeroc.Ice.Current current){
         int prime = Integer.MIN_VALUE;
             do {
                 prime = ++number;
-            } while (!isPrime(prime,current));
+            } while (!isPrime(prime));
         return prime;
     }
 
-    public boolean isPrime(int number, com.zeroc.Ice.Current current){
+    private boolean isPrime(int number){
         boolean verification = true;
 
         for (int i = (int) Math.sqrt(number); i > 1 && verification; i--){

@@ -17,46 +17,6 @@ package Demo;
 
 public interface PrinterPrx extends com.zeroc.Ice.ObjectPrx
 {
-    default boolean verifyGUIDFormat(String guid)
-    {
-        return verifyGUIDFormat(guid, com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default boolean verifyGUIDFormat(String guid, java.util.Map<String, String> context)
-    {
-        return _iceI_verifyGUIDFormatAsync(guid, context, true).waitForResponse();
-    }
-
-    default java.util.concurrent.CompletableFuture<java.lang.Boolean> verifyGUIDFormatAsync(String guid)
-    {
-        return _iceI_verifyGUIDFormatAsync(guid, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<java.lang.Boolean> verifyGUIDFormatAsync(String guid, java.util.Map<String, String> context)
-    {
-        return _iceI_verifyGUIDFormatAsync(guid, context, false);
-    }
-
-    /**
-     * @hidden
-     * @param iceP_guid -
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> _iceI_verifyGUIDFormatAsync(String iceP_guid, java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "verifyGUIDFormat", null, sync, null);
-        f.invoke(true, context, null, ostr -> {
-                     ostr.writeString(iceP_guid);
-                 }, istr -> {
-                     boolean ret;
-                     ret = istr.readBool();
-                     return ret;
-                 });
-        return f;
-    }
-
     default int findClosestPrime(int number)
     {
         return findClosestPrime(number, com.zeroc.Ice.ObjectPrx.noExplicitContext);
@@ -92,46 +52,6 @@ public interface PrinterPrx extends com.zeroc.Ice.ObjectPrx
                  }, istr -> {
                      int ret;
                      ret = istr.readInt();
-                     return ret;
-                 });
-        return f;
-    }
-
-    default boolean isPrime(int number)
-    {
-        return isPrime(number, com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default boolean isPrime(int number, java.util.Map<String, String> context)
-    {
-        return _iceI_isPrimeAsync(number, context, true).waitForResponse();
-    }
-
-    default java.util.concurrent.CompletableFuture<java.lang.Boolean> isPrimeAsync(int number)
-    {
-        return _iceI_isPrimeAsync(number, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<java.lang.Boolean> isPrimeAsync(int number, java.util.Map<String, String> context)
-    {
-        return _iceI_isPrimeAsync(number, context, false);
-    }
-
-    /**
-     * @hidden
-     * @param iceP_number -
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> _iceI_isPrimeAsync(int iceP_number, java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "isPrime", null, sync, null);
-        f.invoke(true, context, null, ostr -> {
-                     ostr.writeInt(iceP_number);
-                 }, istr -> {
-                     boolean ret;
-                     ret = istr.readBool();
                      return ret;
                  });
         return f;
@@ -174,78 +94,6 @@ public interface PrinterPrx extends com.zeroc.Ice.ObjectPrx
                      ret = istr.readBool();
                      return ret;
                  });
-        return f;
-    }
-
-    default void validRequest(String message)
-    {
-        validRequest(message, com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default void validRequest(String message, java.util.Map<String, String> context)
-    {
-        _iceI_validRequestAsync(message, context, true).waitForResponse();
-    }
-
-    default java.util.concurrent.CompletableFuture<Void> validRequestAsync(String message)
-    {
-        return _iceI_validRequestAsync(message, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<Void> validRequestAsync(String message, java.util.Map<String, String> context)
-    {
-        return _iceI_validRequestAsync(message, context, false);
-    }
-
-    /**
-     * @hidden
-     * @param iceP_message -
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_validRequestAsync(String iceP_message, java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "validRequest", null, sync, null);
-        f.invoke(false, context, null, ostr -> {
-                     ostr.writeString(iceP_message);
-                 }, null);
-        return f;
-    }
-
-    default void invalidRequest(String message)
-    {
-        invalidRequest(message, com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default void invalidRequest(String message, java.util.Map<String, String> context)
-    {
-        _iceI_invalidRequestAsync(message, context, true).waitForResponse();
-    }
-
-    default java.util.concurrent.CompletableFuture<Void> invalidRequestAsync(String message)
-    {
-        return _iceI_invalidRequestAsync(message, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<Void> invalidRequestAsync(String message, java.util.Map<String, String> context)
-    {
-        return _iceI_invalidRequestAsync(message, context, false);
-    }
-
-    /**
-     * @hidden
-     * @param iceP_message -
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_invalidRequestAsync(String iceP_message, java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "invalidRequest", null, sync, null);
-        f.invoke(false, context, null, ostr -> {
-                     ostr.writeString(iceP_message);
-                 }, null);
         return f;
     }
 
