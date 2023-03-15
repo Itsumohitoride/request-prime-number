@@ -139,6 +139,7 @@ public class Client {
         System.out.println("Se requiere como minimo un numero entero positivo, y opcionalmente un nombre de archivo de texto local");
         System.out.println("Luis Miguel Ossa Arias - A00369982");
         System.out.println("Gianni stiven Benavides García - A00362358");
+
     }
 
     private static void printNumber(int number){
