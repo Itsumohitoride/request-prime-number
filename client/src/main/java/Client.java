@@ -40,7 +40,11 @@ public class Client {
     private static void oneParameterCase(int number, Demo.PrinterPrx printer){
         boolean isValidNumber = verifyNumber(number);
         if(isValidNumber){
-            printer.validateString(generateGUID().toString());
+            String guid = generateGUID().toString();
+            int prime = printer.findClosestPrime(number);
+
+            printer.validateString(guid);
+            printNumber(prime);
         }else{
             incorrectNumber();
         }
